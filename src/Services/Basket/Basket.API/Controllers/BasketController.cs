@@ -18,10 +18,10 @@ namespace Basket.API.Controllers
 
         [HttpGet("{username}", Name = "GetBasket")]
         [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<ShoppingCart>> GetBasket(string userName)
+        public async Task<ActionResult<ShoppingCart>> GetBasket(string username)
         {
-            var basket = await _basketRepository.GetBasket(userName);
-            return Ok(basket ?? new ShoppingCart(userName));
+            var basket = await _basketRepository.GetBasket(username);
+            return Ok(basket ?? new ShoppingCart(username));
         }
 
         [HttpPost(Name = "UpdateBasket")]
